@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中级社工实务学习笔记</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #f5f5f0; color: #2c2c2c; line-height: 1.8; padding: 20px; max-width: 900px; margin: 0 auto; }
+h1 { text-align: center; font-size: 1.6em; color: #1a1a2e; border-bottom: 3px solid #1a1a2e; padding-bottom: 12px; margin-bottom: 24px; }
+h2 { font-size: 1.3em; color: #fff; background: linear-gradient(135deg, #2c3e7a, #4a6fa5); padding: 10px 18px; border-radius: 8px; margin: 28px 0 16px; }
+h3 { font-size: 1.1em; color: #2c3e7a; border-left: 4px solid #2c3e7a; padding-left: 12px; margin: 20px 0 10px; }
+h4 { font-size: 1em; color: #444; margin: 14px 0 8px; }
+p, li { font-size: 0.95em; }
+ul, ol { padding-left: 24px; margin: 8px 0; }
+li { margin: 4px 0; }
+
+/* 蓝色记忆框 - 口诀/速记 */
+.memory-box {
+  background: #e8f0fe;
+  border: 2px solid #4285f4;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.memory-box::before {
+  content: "📘 速记口诀";
+  position: absolute;
+  top: -12px; left: 16px;
+  background: #4285f4;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 10px;
+}
+.memory-box .blue { color: #1a56db; font-weight: bold; font-size: 1.05em; }
+
+/* 橙色考点框 */
+.exam-point {
+  background: #fff3e0;
+  border: 2px solid #fb8c00;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.exam-point::before {
+  content: "🔥 重要考点";
+  position: absolute;
+  top: -12px; left: 16px;
+  background: #fb8c00;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 10px;
+}
+.exam-point .orange { color: #e65100; font-weight: bold; }
+
+/* 粉色易错框 */
+.warning-box {
+  background: #fce4ec;
+  border: 2px solid #e91e63;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.warning-box::before {
+  content: "⚠️ 易错提醒";
+  position: absolute;
+  top: -12px; left: 16px;
+  background: #e91e63;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 10px;
+}
+
+/* 答案模板框 */
+.answer-box {
+  background: #f1f8e9;
+  border: 2px solid #66bb6a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.answer-box::before {
+  content: "✅ 参考答案/模板";
+  position: absolute;
+  top: -12px; left: 16px;
+  background: #66bb6a;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 10px;
+}
+
+/* 案例背景 */
+.case-bg {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 10px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* 做题策略 */
+.strategy {
+  background: #ede7f6;
+  border: 2px solid #7e57c2;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.strategy::before {
+  content: "💡 做题策略";
+  position: absolute;
+  top: -12px; left: 16px;
+  background: #7e57c2;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 12px;
+  border-radius: 10px;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+th { background: #2c3e7a; color: #fff; padding: 10px; text-align: center; }
+td { border: 1px solid #ccc; padding: 8px 10px; vertical-align: top; }
+tr:nth-child(even) { background: #f9f9f9; }
+.tag { display: inline-block; background: #e3f2fd; color: #1565c0; border-radius: 4px; padding: 1px 8px; font-size: 0.85em; margin: 2px; }
+.section-divider { border: none; border-top: 2px dashed #ccc; margin: 30px 0; }
+.subtitle { text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<h1>中级社会工作实务 · 真题精讲学习笔记</h1>
+<p class="subtitle">基于小梦老师直播课 · 2021年真题做题方法与核心考点</p>
+
+<!-- ==================== 考前总纲 ==================== -->
+<h2>一、答题总纲（考前必看）</h2>
+
+<div class="exam-point">
+  <p><span class="orange">中级实务没有标准答案，言之有理即可得分！</span></p>
+  <p>四个核心共识：</p>
+  <ul>
+    <li>不需要和教材小标题写得一模一样</li>
+    <li>案例中提到的内容不用全抄，点到即可</li>
+    <li>扩写部分是锦上添花，不是必须一字不差</li>
+    <li>答案和参考要点不一样 ≠ 没有分数</li>
+  </ul>
+</div>
+
+<div class="strategy">
+  <p><strong>做题顺序：从简单到难，控制好时间！</strong></p>
+  <p>先做最有把握的题目拿满分，最难的题最后做，实在不会也要写——写了就有分，终极实务不存在零分。</p>
+  <p><strong>分数策略 1:2:1</strong> → 简单题冲13-14分 | 中等题拿8-9分 | 难题拿5分保底</p>
+</div>
+
+<div class="strategy">
+  <p><strong>万能答题结构 = 小标题 + 案例中提到 + 一句扩写</strong></p>
+  <p>扩写不会写？用"表明了……的需求"或"说明了……的问题"来衔接。</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 案例一 ==================== -->
+<h2>二、案例一：基层治理（第四章）——特点与功能</h2>
+
+<h3>2021年真题（新大纲修改）</h3>
+<div class="case-bg">
+  <strong>鸿福社区</strong>是一个老旧小区，电动车进楼入户、"飞线充电"屡禁不止，占用公共空间，带来消防安全隐患，邻里纠纷频发，居民对物业和居委会抱怨日益增多。社工小李与居委会合作，走访座谈，发现居民骨干和闲置自行车棚等资源，组织社区议事会进行实质性协商，最终改建充电桩、成立巡逻队，问题显著改善。
+</div>
+
+<p><strong>【问题1】</strong>结合案例，简述基层治理和基层政权建设领域社会工作服务的特点。</p>
+<p><strong>【问题2】</strong>小李的工作主要发挥了哪些功能？</p>
+
+<h3>第一问：特点（双教材对比）</h3>
+
+<table>
+  <tr><th>社会版</th><th>人大版</th></tr>
+  <tr><td>以社区为对象</td><td>以村（社区）为主要服务场域</td></tr>
+  <tr><td>重点解决社区群众面临的共同性问题</td><td>重点解决基层群众急难愁盼问题</td></tr>
+  <tr><td>重视社区资源的挖掘和运用</td><td>重视对基层治理资源的挖掘和运用</td></tr>
+  <tr><td>强调群众参与，关注人的发展</td><td>强调协商共治与城乡社区参与</td></tr>
+  <tr><td>采用宏观结构的视角分析和介入问题</td><td>—</td></tr>
+</table>
+
+<div class="memory-box">
+  <p><span class="blue">特点速记：「对象 → 问题 → 资源 → 参与 → 宏观」</span></p>
+  <p>① 以社区为<span class="blue">场域</span>（对象）<br>
+  ② 解决<span class="blue">急难愁盼</span>的集体性问题<br>
+  ③ <span class="blue">资源的挖掘</span>与运用（人力/物力/组织资源）<br>
+  ④ <span class="blue">协商共治</span>，强调群众参与<br>
+  ⑤ <span class="blue">宏观视角</span>系统性解决问题</p>
+</div>
+
+<div class="warning-box">
+  <p>双版本教材存在差异时：不要求全！最多写5条封顶，前三条两版基本一致，第四条表述不同（群众参与 vs 协商共治），选一个写即可。第五条"宏观视角"能写就写，不会写也OK，属于锦上添花。</p>
+</div>
+
+<h4>案例中如何找对应点？</h4>
+<ul>
+  <li><strong>以社区为对象</strong> → "鸿福社区是一个老旧小区"</li>
+  <li><strong>共同性/集体性问题</strong> → "大家都反映""经常发生纠纷""安全隐患"</li>
+  <li><strong>资源挖掘</strong> → 居民骨干（<span class="tag">人力资源</span>）、闲置自行车棚（<span class="tag">物力资源</span>）、居委会/物业/街道安监办（<span class="tag">组织资源</span>）、街道资金支持（<span class="tag">财力资源</span>）</li>
+  <li><strong>协商共治</strong> → "社区议事会""实质性协商""骨干牵头成立巡逻队"</li>
+  <li><strong>宏观视角</strong> → 小李没有简单"堵"，而是与居委会合作系统性解决</li>
+</ul>
+
+<div class="answer-box">
+  <p><strong>参考答案要点（第一问）：</strong></p>
+  <p>（1）<strong>以城乡社区为主要对象。</strong>服务以鸿福社区这一地域性社区为对象，具有多层次性的特点，既包括有充电需求的个体居民，也包括新成立的巡逻队，还涵盖了居委会、物业公司等治理主体。</p>
+  <p>（2）<strong>服务提供主体多元化。</strong>案例中的服务是由多方共同提供的，包括专业社工、居委会社区工作者、居民骨干组成的志愿者。</p>
+  <p>（3）<strong>重点解决基层群众的集体性问题。</strong>服务聚焦于电动车"飞线充电"问题，这是社区大多数群众共同面临的公共性困境和安全服务空缺。</p>
+  <p>（4）<strong>重视对基层治理资源的挖掘和运用。</strong>小李充分挖掘和运用了多种资源：人力资源（居民骨干）、物力资源（闲置自行车棚）、组织资源（居委会、物业、街道安监办、巡逻队）、财力/制度资源（街道资金支持）。</p>
+  <p>（5）<strong>强调协商共治与社区参与。</strong>一是发展协商民主，通过组织社区议事会充分听取群众意见，实现了实质性协商。二是强调社区参与，居民围绕共同利益（安全）自下而上地组织起来（成立巡逻队），解决问题，培养了集体意识。</p>
+</div>
+
+<h3>第二问：功能</h3>
+
+<div class="memory-box">
+  <p><span class="blue">功能 = 好处！这样做有什么好处？</span></p>
+  <p>功能核心关键词速记：</p>
+  <p><span class="blue">回应需求 → 促进参与 → 链接资源 → 助力调解 → 支持网络 → 促进和谐</span></p>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">【人大版】基层治理的功能（万能背诵）：</span></p>
+  <ul>
+    <li>回应村（居）民需求，推动公共服务精准化</li>
+    <li>促进社区参与，增强群众自治能力</li>
+    <li>链接多元资源，助力构建协同治理格局</li>
+    <li>助力矛盾调解，维护社区稳定和谐</li>
+    <li>增能群体发展，培育社区支持网络</li>
+    <li>助力政策完善，提升治理现代化水平</li>
+  </ul>
+</div>
+
+<div class="strategy">
+  <p><strong>考试时忘了功能怎么办？</strong></p>
+  <p>功能 = 好处。把案例中所有问题解决后带来的好处列出来即可：</p>
+  <p>居民诉求被回应了 → <strong>回应需求</strong><br>
+  大家一起参与了 → <strong>促进社区参与</strong><br>
+  链接了各方资源 → <strong>链接资源</strong><br>
+  纠纷矛盾解决了 → <strong>助力调解</strong><br>
+  社区更和谐了 → <strong>促进社区和谐</strong></p>
+  <p>5条小标题 + 案例中提到 + 一句扩写 → 最少8-9分没问题！</p>
+</div>
+
+<div class="memory-box">
+  <p><span class="blue">基层治理主旋律 = 共建共治共享</span></p>
+  <p>社工永远的两个好朋友：<span class="blue">链接资源</span> + <span class="blue">支持网络</span>（考场先写在准考证背面！）</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 案例二 ==================== -->
+<h2>三、案例二：妇女社会工作——需求与参与式学习</h2>
+
+<h3>2021年真题</h3>
+<div class="case-bg">
+  社工在某社区调研发现：低收入家庭中有劳动意愿和能力的妇女共30名。她们大多从农村嫁到城里，婚后长期在家照顾老人和孩子，身边几乎没有能谈心的朋友。由于没有工作收入，家庭地位较低；一旦发生家庭矛盾只能忍气吞声。她们希望学一些在家能做的手工编织技能，实现劳动创收和照顾家庭两不误，提升自身价值和家庭地位。<br><br>
+  社工组织成立了手工编织互助组。在开展技能培训时，她们认为应由社工制定培训内容和学习计划，因此几乎不发表自己的意见。由于不自信，在讨论环节也很少主动分享自己的想法和经验。
+</div>
+
+<p><strong>【问题1】</strong>分析该社区低收入家庭中的妇女主要有哪几个方面的需求？</p>
+<p><strong>【问题2】</strong>运用参与式学习方法，社工在开展技能培训时，应采取哪些策略促进这些妇女的改变。</p>
+
+<h3>第一问：妇女的需求分析</h3>
+
+<div class="strategy">
+  <p><strong>做题方法：逐句拆解案例，从案例关键词推导需求</strong></p>
+</div>
+
+<table>
+  <tr><th>案例关键词</th><th>对应需求</th></tr>
+  <tr><td>低收入家庭、有劳动意愿</td><td>增加家庭收入的需求 / 就业的需求</td></tr>
+  <tr><td>身边几乎没有能谈心的朋友</td><td>社会交往的需求（构建社会支持网络）</td></tr>
+  <tr><td>没有工作收入、家庭地位较低、忍气吞声</td><td>提高家庭收入与家庭地位提升需要（自尊、自信、自我认同）</td></tr>
+  <tr><td>希望学手工编织技能、实现劳动创收</td><td>技能提升与自我价值需要</td></tr>
+  <tr><td>几乎不发表意见、不主动分享</td><td>自信心提升需要</td></tr>
+</table>
+
+<div class="warning-box">
+  <p><strong>看到"朋友"→ 想到社会支持网络</strong>；看到"地位低""忍气吞声"→ 想到<strong>自尊、自信、自我认同、男女平等</strong>。这些万能词要放进扩写中，让答案更专业！</p>
+</div>
+
+<div class="answer-box">
+  <p><strong>参考答案要点（第一问）：</strong></p>
+  <p>（1）<strong>社会交往的需求。</strong>案例中社区低收入家庭妇女身边几乎没有能谈心的朋友，表明她们存在社会交往的需求。</p>
+  <p>（2）<strong>提高家庭收入和家庭地位的需求。</strong>案例中这些妇女没有工作收入，家庭地位较低，发生家庭矛盾只能忍气吞声，表明她们存在提高家庭收入和家庭地位的需求。</p>
+  <p>（3）<strong>提高技能和自我价值的需求。</strong>案例中这些妇女希望学一些在家能做的手工编织技能，实现劳动创收和照顾家庭两不误，提升自身价值和家庭地位。表明她们存在提高技能和自我价值的需求。</p>
+  <p>（4）<strong>提升自信心的需求。</strong>案例中这些妇女在参加小组活动时由于自信不足，很少主动分享自己的想法和经验，表明她们存在提升自信的需求。</p>
+</div>
+
+<h3>第二问：参与式学习的策略</h3>
+
+<div class="memory-box">
+  <p><span class="blue">参与式学习 = 从"被安排"变成"共同参与者"</span></p>
+  <p>核心：<span class="blue">她做主、她参与、她决策</span>，全程沉浸式参与各个环节</p>
+</div>
+
+<div class="strategy">
+  <p><strong>巧借第一问推策略！</strong></p>
+  <table>
+    <tr><th>第一问的问题/需求</th><th>推出的策略</th></tr>
+    <tr><td>没有朋友 → 社会交往需要</td><td>促进彼此交流合作</td></tr>
+    <tr><td>没有工作收入</td><td>通过技能培训提升能力，帮助就业增收</td></tr>
+    <tr><td>不发表意见、依赖社工制定课程</td><td>参与制定培训计划</td></tr>
+    <tr><td>讨论中很少分享经验</td><td>鼓励经验分享</td></tr>
+    <tr><td>习惯被动接受安排</td><td>建立平等合作关系</td></tr>
+    <tr><td>缺乏自信、不敢表达</td><td>增强自信与主体意识</td></tr>
+  </table>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">参与式学习三大要点：</span></p>
+  <p>（1）使妇女们参与学习课程内容制定、课程主题和进程、课程评估等<strong>各个环节</strong>，而不是执行专家制定的一套学习计划。</p>
+  <p>（2）用角色扮演、案例讨论、游戏、情景剧、讲故事等方法调动妇女经验的分享，"小活动、大道理"，通过小活动引发大家的深入思考，让每名妇女充分表达自己的思想。</p>
+  <p>（3）不仅要让妇女学习到知识，更重要的是<strong>提升妇女的自信</strong>。社工要通过鼓励发言、肯定进步、创造成功体验等方式，增强妇女的自我认同、自我表达能力和参与动力，推动其从被动接受转向主动参与。</p>
+</div>
+
+<div class="warning-box">
+  <p><strong>考试时不了解"参与式学习"概念怎么办？</strong></p>
+  <p>不影响做题！不会的概念不要硬解释。人家问策略直接上策略，从案例中的问题推出来即可。只有第五题方案设计题需要解释理论，案例分析题不需要。</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 案例三 ==================== -->
+<h2>四、案例三：儿童社会工作——需要与家庭寄养</h2>
+
+<h3>2021年真题</h3>
+<div class="case-bg">
+  小辉上小学二年级时，爸爸突发急病去世，妈妈因此受刺激得了间歇性精神疾病。妈妈病情发作时不仅没有能力照顾小辉，而且会无故殴打他。最近妈妈病情加重，试图自杀，被邻居及时发现并制止。<br><br>
+  村儿童主任紧急报告给镇政府，镇政府委托社工机构入村支援。社工评估发现：小辉今年刚满10岁，身体严重消瘦，已经半个多月没去上学了；小辉的妈妈需要立即入院治疗；小辉家在当地没有亲戚，当前亟需处理小辉的临时安置问题。<br><br>
+  上级民政部门决定依法对小辉实施临时监护，委托村委会采取家庭寄养的方式进行临时安置。在征得小辉及其妈妈的知情同意后，面向全村招募临时寄养家庭，并对报名的家庭进行筛选，最终评审出一个合格家庭。
+</div>
+
+<p><strong>【问题1】</strong>结合案例，分析小辉的需要。</p>
+<p><strong>【问题2】</strong>按照家庭寄养安置介入服务流程，本案例中社工后续需要开展哪些工作？</p>
+
+<h3>第一问：儿童的需要</h3>
+
+<div class="memory-box">
+  <p><span class="blue">儿童四大需要：「生 发 社 保」</span></p>
+  <p><span class="blue">生存</span>的需要 → <span class="blue">发展</span>的需要 → <span class="blue">社会化</span>的需要 → 受<span class="blue">保护</span>的需要</p>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">看到案例关键词，秒出答案：</span></p>
+  <ul>
+    <li>父母有一方不在/疾病 → <strong>发展的需要</strong>（家庭环境影响身心健康）</li>
+    <li>无人照顾/身体消瘦 → <strong>生存的需要</strong>（生活照料、营养缺乏）</li>
+    <li>殴打/监护不足/自杀 → <strong>受保护的需要</strong></li>
+    <li>半个月没上学 → <strong>发展的需要 + 社会化的需要</strong></li>
+    <li>当地没有亲戚 → <strong>构建社会支持网络的需要</strong>（锦上添花）</li>
+    <li>母亲殴打+自杀 → <strong>心理辅导的需要</strong>（锦上添花）</li>
+  </ul>
+</div>
+
+<div class="warning-box">
+  <p><strong>"问题"与"需要"一定要区分清楚！</strong></p>
+  <p>问<strong>问题</strong>：用负面词结尾 → "社会支持<strong>弱</strong>的问题""监护能力<strong>不足</strong>的问题"</p>
+  <p>问<strong>需要</strong>：用正面/中性词 → "构建社会支持网络的<strong>需要</strong>""受保护的<strong>需要</strong>"</p>
+  <p>对于儿童，不要写"小辉面临经济压力"，应写"小辉的<strong>家庭</strong>面临着较大的经济压力"——主体要严谨！</p>
+</div>
+
+<div class="answer-box">
+  <p><strong>参考答案要点（第一问）：</strong></p>
+  <p>（1）<strong>生存的需要。</strong>案例中提到：小辉的爸爸突发急病去世，妈妈因精神疾病无法正常照顾他，还会无故殴打他，导致小辉"身体严重消瘦"。这说明小辉在生活照顾和基本营养方面缺乏保障，生存状况堪忧。</p>
+  <p>（2）<strong>发展的需要和社会化的需要。</strong>案例中提到：小辉已经半个多月没去上学了，明显影响了正常的学习和教育机会，同时没有去上课也影响了他参与学校生活，缺乏与同伴交流的机会。</p>
+  <p>（3）<strong>受保护的需要。</strong>案例中提到：妈妈在病情发作时会殴打小辉，还曾试图自杀。这使小辉直接面临人身伤害和心理恐惧的风险。同时，由于爸爸去世、妈妈需入院治疗、家庭缺乏其他监护人，小辉面临严重的家庭监护缺失。</p>
+  <p>（4）<strong>构建社会支持网络的需要。</strong>案例中提到，小辉家在当地没有亲戚。说明其正式和非正式支持系统都较为薄弱，需要链接村委会、寄养家庭、学校及相关救助资源，重建支持网络。</p>
+  <p>（5）<strong>心理辅导需要。</strong>小辉连续经历丧父、母亲患病、被殴打等多重打击，容易产生恐惧、无助和不安全感，因此需要及时开展心理疏导与情绪支持。</p>
+</div>
+
+<h3>第二问：家庭寄养安置介入流程</h3>
+
+<div class="memory-box">
+  <p><span class="blue">家庭寄养六步流程：「招 → 估 → 训 → 配 → 融 → 签」</span></p>
+  <p><span class="blue">招募</span> → <span class="blue">评估</span> → <span class="blue">培训</span> → <span class="blue">匹配</span> → <span class="blue">融合</span> → <span class="blue">签订协议</span></p>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">案例中已完成：招募 + 评估（筛选出一个合格家庭）</span></p>
+  <p><span class="orange">后续需要做的：培训 → 匹配 → 入户融合 → 签订寄养协议</span></p>
+</div>
+
+<div class="answer-box">
+  <p><strong>参考答案要点（第二问）：</strong></p>
+  <p>（1）<strong>寄养家庭岗前培训。</strong>案例中提到最终评审出一个合格家庭，但在安置前，社工还应对寄养家庭进行培训，帮助其掌握照顾儿童的基本技能，了解儿童保护的法律法规，增强责任意识。</p>
+  <p>（2）<strong>寄养儿童匹配。</strong>家庭寄养安置介入包括寄养家庭招募、寄养家庭评估、寄养家庭岗前培训、寄养儿童匹配、儿童入户融合、签订寄养协议。（简述完整流程后聚焦后续步骤）</p>
+  <p>（3）<strong>儿童入户融合。</strong>社工需定期家访和电话回访，跟踪小辉在寄养家庭中的生活、学习和情感状态，同时为寄养家庭提供持续的指导和心理支持，解决可能出现的矛盾和问题。<br>
+  <em>关键词：<strong>渐进式融合</strong>——从短时接触逐步过渡到长期生活。</em></p>
+  <p>（4）<strong>签订寄养协议。</strong>若小辉与寄养家庭适配并能够顺利融入其中，则组织签订寄养协议。</p>
+</div>
+
+<div class="warning-box">
+  <p><strong>关于结案/跟进：</strong>家庭寄养服务中需要一直跟进，直到寄养关系终止。终止条件包括：妈妈身体恢复健康后小辉回归家庭，或到18岁成年。如果想写结案可以提及，但答案重点是上述四个步骤。</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 案例四 ==================== -->
+<h2>五、案例四：社会救助——社会支持网络</h2>
+
+<h3>2021年真题</h3>
+<div class="case-bg">
+  在乡村振兴战略背景下，社工进驻移民搬迁新建社区。通过家访发现：王老汉一家从缺乏基本生存条件的山区搬迁入住新建社区，老伴几年前过世；儿子、儿媳在外省打工，会定期寄钱回家，但人很少回来；孙儿由王老汉独自照顾。王老汉对社区不熟悉，遇到困难不知道该找谁，十分苦闷。<br><br>
+  由于搬迁，与王老汉关系密切的原住地乡亲中只剩下十几个人还保持着联系，经常来往的只有两三个。这些乡亲表示，如果王老汉有需要的话，他们愿意提供力所能及的帮助。社工还了解到，新建社区中的移民家庭大多有相互联系的意愿，而且不少热心居民愿意提供志愿服务。
+</div>
+
+<p><strong>【问题1】</strong>分析社工从哪些方面评估了王老汉的社会支持网络状况？</p>
+<p><strong>【问题2】</strong>社工可以通过哪些具体的步骤强化王老汉的社会支持网络效益？</p>
+
+<h3>第一问：社会支持网络评估（四个维度）</h3>
+
+<div class="memory-box">
+  <p><span class="blue">社会支持网络评估四维度：</span></p>
+  <p><span class="blue">网络规模</span> → 有多少人<br>
+  <span class="blue">网络基础</span> → 能帮啥<br>
+  <span class="blue">网络质量</span> → 能力大不大、意愿强不强<br>
+  <span class="blue">网络强度</span> → 联系多不多</p>
+</div>
+
+<h4>案例对应分析：</h4>
+<table>
+  <tr><th>评估维度</th><th>案例对应</th><th>结论</th></tr>
+  <tr><td>网络规模</td><td>老伴去世、儿子儿媳在外省、经常联系的朋友只有2-3个</td><td>规模偏小</td></tr>
+  <tr><td>网络基础</td><td>儿子儿媳定期寄钱；乡亲愿意提供力所能及的帮助</td><td>有一定基础，能提供经济支持和生活帮助</td></tr>
+  <tr><td>网络质量</td><td>乡亲非常热心、愿意帮助</td><td>意愿较强，质量尚可</td></tr>
+  <tr><td>网络强度</td><td>儿子儿媳"很少回来"、经常来往的只有2-3个</td><td>联系频率低，强度较弱</td></tr>
+</table>
+
+<div class="strategy">
+  <p><strong>考试遇到这种题完全不会怎么保命？</strong></p>
+  <p>把社会支持网络写成：<strong>正式支持网络</strong>（政府、机构）+ <strong>非正式支持网络</strong>（家人、邻里、朋友、志愿者），然后从案例中提取对应内容，也能拿到5分左右！</p>
+</div>
+
+<h3>第二问：强化社会支持网络效益的步骤</h3>
+
+<div class="memory-box">
+  <p><span class="blue">强化支持网络四步走：</span></p>
+  <p><span class="blue">旧关系</span>（加强联系）→ <span class="blue">志愿者</span>（链接资源）→ <span class="blue">同类互助</span>（自助互助网络）→ <span class="blue">邻里资源</span>（扩大支持网络）</p>
+</div>
+
+<div class="answer-box">
+  <p><strong>参考答案要点（第二问）：</strong></p>
+  <p>（1）<strong>协助服务对象巩固原有社会关系。</strong>案例中提到：王老汉与原住地乡亲仍保持联系，经常来往的有两三个人，这些乡亲愿意提供帮助。社工可以与王老汉一起梳理现有关系网络，分析哪些成员能够提供支持，并鼓励其加强与乡亲、子女等关系人的联系，巩固原有社会关系，增强社会支持。</p>
+  <p>（2）<strong>链接社区志愿者资源提供支持。</strong>案例中提到：社区中有不少热心居民愿意提供志愿服务。社工可以发动社区志愿者资源，将王老汉与愿意提供服务的居民结对联系，通过一对一定期探访等方式，为其提供生活照料和情感支持。</p>
+  <p>（3）<strong>促进形成移民居民互助网络。</strong>案例中提到：新建社区中的移民家庭大多有相互联系的意愿。社工可以组织搬迁居民开展交流活动或建立互助小组，促进有相似经历和需求的居民之间相互帮助、相互支持。</p>
+  <p>（4）<strong>动员邻里和社区骨干参与支持。</strong>案例中提到：社区中有不少热心居民。社工可以联系社区骨干和邻里，通过邻里互助、社区活动等方式扩大社会支持网络，帮助王老汉更好地融入新的社区生活。</p>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">社会支持网络可以和任何一个人群组合出题！</span>妇女、老年人、儿童、残疾人等都可能考。核心逻辑不变：「链接资源 + 支持网络」是永远的老朋友。倡导<strong>老龄友好社区建设</strong>也可以作为最后的升华句。</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 案例五 ==================== -->
+<h2>六、案例五：方案设计题——小组工作（情绪管理）</h2>
+
+<h3>2021年真题</h3>
+<div class="case-bg">
+  某校成立了包括社工在内的学生欺凌防治工作组。社工调查发现，有欺凌行为的学生中不少人缺乏基本的情绪管理能力：有的不能觉察自己的情绪状态；有的不善表达自己的情绪；有的用暴力方式释放负面情绪；有的虽知道欺凌行为不好，但无法自我控制。<br><br>
+  在学校的支持下，社工计划运用小组工作方法帮助这些学生科学管理情绪。小组总体目标为：通过提升学生情绪觉察、情绪表达和情绪管理等能力，预防和消除欺凌行为。小组共五节。
+</div>
+
+<p><strong>【要求】</strong>结合案例，完成本情绪管理小组计划的设计，只需列出每节活动的目标和主要内容。</p>
+
+<h3>方案设计题万能模板</h3>
+
+<div class="memory-box">
+  <p><span class="blue">做题逻辑：问题 → 目标 → 每节的分任务</span></p>
+  <p><span class="blue">核心思路：从认知改变 → 行为习惯养成 → 应用于生活</span></p>
+</div>
+
+<div class="exam-point">
+  <p><span class="orange">小组活动五节模板（万能框架）：</span></p>
+  <table>
+    <tr><th>节次</th><th>主题</th><th>核心任务</th></tr>
+    <tr><td>第一节</td><td>破冰·认识情绪</td><td>建立信任关系 + 初步认知</td></tr>
+    <tr><td>第二节</td><td>觉察情绪</td><td>识别自己的情绪反应</td></tr>
+    <tr><td>第三节</td><td>表达情绪</td><td>学会正确表达与宣泄</td></tr>
+    <tr><td>第四节</td><td>管理冲突</td><td>非暴力沟通与冲突应对</td></tr>
+    <tr><td>第五节</td><td>巩固能力</td><td>总结与展望，应用于生活</td></tr>
+  </table>
+</div>
+
+<div class="answer-box">
+  <p><strong>参考答案：</strong></p>
+
+  <p><strong>1. 第一节：认识情绪，建立关系</strong></p>
+  <p>（1）目标：通过破冰活动让组员互相认识，建立安全氛围；初步掌握情绪的基本知识。</p>
+  <p>（2）主要内容：①开展暖场游戏，帮助组员消除陌生感，建立小组信任。②社工引导组员围绕"喜、怒、哀、乐"等情绪话题展开讨论，帮助他们认识情绪的性质、种类与作用，以及对行为的影响。</p>
+
+  <p><strong>2. 第二节：觉察与识别情绪</strong></p>
+  <p>（1）目标：引导学生学会觉察并识别自己的情绪状态。</p>
+  <p>（2）主要内容：①通过情绪量表测评，帮助组员认识自己常见的情绪反应。②讨论生活中不良情绪的表现，如愤怒、焦虑、失落等，引导学生联系实际，觉察自己在不同情境下的情绪反应。</p>
+
+  <p><strong>3. 第三节：正确表达与宣泄情绪</strong></p>
+  <p>（1）目标：帮助学生学会表达情绪，并掌握健康的情绪宣泄方式。</p>
+  <p>（2）主要内容：①角色扮演练习，引导组员用语言和合适的方式表达愤怒、兴奋、紧张等情绪，而不是以暴力方式释放。②学习转移注意力的方法，如运动、音乐、写日记等，掌握积极的情绪宣泄技巧。③小组分享，鼓励组员总结自己最喜欢和最适合的情绪管理方式。</p>
+
+  <p><strong>4. 第四节：非暴力沟通与冲突应对</strong></p>
+  <p>（1）目标：提升学生的沟通能力和情绪控制能力，减少因沟通不当引发的冲突。</p>
+  <p>（2）主要内容：①社工讲解"非暴力沟通"的四要素（观察、感受、需要、请求）。②小组练习：结合生活中可能出现的同伴冲突情境，分组模拟对话，学习用平和方式表达需求。③讨论和反思：通过交流体验，掌握控制情绪、防止冲突升级的技巧。</p>
+
+  <p><strong>5. 第五节：总结与展望</strong></p>
+  <p>（1）目标：巩固学习成果，总结小组经验，处理活动结束带来的情绪，展望未来。</p>
+  <p>（2）主要内容：①邀请组员分享小组中的收获与变化，表达对他人的感谢。②共同制定"情绪管理小锦囊"，总结小组中学到的技巧，作为今后生活中的参考。③社工引导组员展望未来，强调"成为情绪的主人"，并处理好小组离别带来的情绪体验。</p>
+</div>
+
+<div class="strategy">
+  <p><strong>方案设计题是最好提分的一道题！目标12-14分。</strong></p>
+  <p>模板性极强，记住框架直接套用。如果考试是六节，增加一节内容；如果是五节，删减一节即可。</p>
+  <p><strong>考试技巧：</strong>方案设计题建议直接抄模板，约800字左右。字大的写700字。不要写太满，也不要跳行写。</p>
+</div>
+
+<div class="warning-box">
+  <p>方案设计题可能考的主题：情绪管理（学校/青少年）、人在情境中理论、生态系统理论、优势视角理论等。把"情绪"换成其他主题，第一步破冰、最后一步巩固应用于生活的框架不变！</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 2024年真题 ==================== -->
+<h2>七、2024年真题速览</h2>
+
+<div class="exam-point">
+  <p><span class="orange">2024年真题变动：</span>依据最新大纲，替换1道题，修订4道题。</p>
+</div>
+
+<h3>案例（一）：禁毒社工——同伴辅导员</h3>
+<p><strong>问题1：</strong>分析本案例中同伴辅导员的功效。</p>
+<p><strong>问题2：</strong>结合案例，分析优势视角下社会工作实务的特点。</p>
+
+<h3>案例（二）：基层治理——志愿服务项目</h3>
+<p><strong>问题1：</strong>请简述基层治理和基层政权建设领域社会工作的服务目标。</p>
+<p><strong>问题2：</strong>本案例中体现了基层治理和基层政权建设领域社会工作服务的哪些特点？</p>
+
+<h3>案例（三）：儿童友好社区建设</h3>
+<p><strong>问题1：</strong>分析本案例中社区需求的类型。</p>
+<p><strong>问题2：</strong>本案例中社工从哪些方面推动了儿童友好社区建设？</p>
+
+<h3>案例（四）：企业社工——危机介入</h3>
+<p><strong>问题1：</strong>本案例中，社工运用了哪些危机介入的技巧？</p>
+<p><strong>问题2：</strong>本案例中，社工提供了哪些企业社会工作服务？</p>
+
+<h3>案例（五）：学校社工——服务计划设计（方案设计题）</h3>
+<div class="case-bg">
+  初三学生小芳（15岁），近期随父母工作调动转入新学校。一个多月来，小芳出现了成绩明显下滑、情绪低落、不愿与同学和父母交流的情况，常常独自一人发呆，在家也因学业、交友等问题与父母频繁争吵。小芳父母工作繁忙，认为已经为小芳提供了最好的物质条件，他们对小芳的现状感到焦虑，与小芳沟通时常说"我们这都是为了你好"，但效果甚微。
+</div>
+<p><strong>要求：</strong>为小芳设计一份服务计划，要求包括服务计划的各个要素。</p>
+
+<div class="exam-point">
+  <p><span class="orange">服务计划要素提醒：</span>问题分析（需求评估）→ 服务目标（总目标+分目标）→ 理论依据 → 服务策略/介入方法 → 服务计划（具体内容和时间安排）→ 预期成效/评估方法</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== 万能词汇 ==================== -->
+<h2>八、考场万能词汇库</h2>
+
+<div class="memory-box">
+  <p><span class="blue">高频万能词（适用于所有章节扩写）：</span></p>
+  <p>
+  <span class="blue">链接资源</span> · <span class="blue">社会支持网络</span> · <span class="blue">协商共治</span> · <span class="blue">回应需求</span> · <span class="blue">社区参与</span> · <span class="blue">增权赋能</span> · <span class="blue">自我认同</span> · <span class="blue">自信心提升</span> · <span class="blue">资源挖掘与运用</span> · <span class="blue">老龄友好社区建设</span> · <span class="blue">促进社区和谐</span> · <span class="blue">治理现代化</span>
+  </p>
+</div>
+
+<div class="memory-box">
+  <p><span class="blue">看到关键词 → 秒联想：</span></p>
+  <p>看到"朋友/亲戚" → <span class="blue">社会支持网络</span><br>
+  看到"殴打/淤青/虐待" → <span class="blue">受保护的需要</span><br>
+  看到"骨干" → <span class="blue">资源（人力资源）</span><br>
+  看到"闲置空间" → <span class="blue">物力资源</span><br>
+  看到"地位低/忍气吞声" → <span class="blue">自尊、自信、自我认同、男女平等</span><br>
+  看到"监护不足" → <span class="blue">受保护的需要</span><br>
+  看到"协商/议事会" → <span class="blue">协商共治</span></p>
+</div>
+
+<div class="strategy">
+  <p><strong>考场急救三步走：</strong></p>
+  <p>① 深呼吸，告诉自己"我是来拿分儿的"<br>
+  ② 从简单到难，先把会的题拿满分<br>
+  ③ 不会的题也要写——小标题 + 案例中提到 + 万能词扩写 = 保底得分</p>
+  <p><strong>写了就有分，不存在零分！</strong></p>
+</div>
+
+<p style="text-align:center; color:#999; margin-top:40px; font-size:0.85em;">
+  📚 一定要写 · 一定要练 · 多读多思<br>
+  专注，坚定，大胆出发！
+</p>
+
+</body>
+</html>
